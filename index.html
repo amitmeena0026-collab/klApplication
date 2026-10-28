@@ -19,23 +19,56 @@
       background: #fff;
       color: #222;
       min-height: 100vh;
+      padding-bottom: 100px;
     }
 
     header {
       background: #790018;
       color: white;
       text-align: center;
-      padding: 25px 15px;
+      padding: 20px 15px;
     }
 
     header h1 {
-      font-size: 27px;
+      font-size: 25px;
       margin-bottom: 8px;
     }
 
     header p {
       font-size: 14px;
       color: #ffe3e8;
+      margin-bottom: 16px;
+    }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      background: #790018;
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #a00025;
+    }
+
+    .header-download {
+      max-width: 320px;
+      margin: 0 auto;
+      background: white;
+      color: #790018;
+    }
+
+    .header-download:hover {
+      background: #ffe3e8;
     }
 
     main {
@@ -94,24 +127,6 @@
       font-size: 14px;
     }
 
-    .download-btn {
-      display: block;
-      width: 100%;
-      background: #790018;
-      color: white;
-      text-decoration: none;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 22px;
-      transition: background 0.2s;
-    }
-
-    .download-btn:hover {
-      background: #a00025;
-    }
-
     .note {
       font-size: 12px;
       color: #777;
@@ -120,9 +135,33 @@
 
     footer {
       text-align: center;
-      padding: 20px 10px;
+      padding: 20px 15px;
       color: #777;
       font-size: 12px;
+    }
+
+    /* Fixed download button: always visible */
+    .fixed-download {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: #fff;
+      padding: 12px 16px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 18px #00000018;
+      border-top: 1px solid #ead3d8;
+    }
+
+    .fixed-download .download-btn {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #790018;
+    }
+
+    .fixed-download .download-btn:hover {
+      background: #a00025;
     }
   </style>
 </head>
@@ -132,6 +171,13 @@
   <header>
     <h1>KL Application No:1</h1>
     <p>India's Best Application</p>
+
+    <!-- Header download button -->
+    <a class="download-btn header-download"
+       href="YOUR-APK-LINK"
+       download>
+      ↓ Download APK
+    </a>
   </header>
 
   <main>
@@ -154,12 +200,9 @@
         <div class="feature">✓ Good Offers & Updates</div>
       </div>
 
-      <!-- Replace YOUR-APK-LINK with your actual APK URL -->
-      <a
-        class="download-btn"
-        href="YOUR-APK-LINK"
-        download
-      >
+      <a class="download-btn"
+         href="YOUR-APK-LINK"
+         download>
         ↓ Download APK
       </a>
 
@@ -173,6 +216,15 @@
   <footer>
     © 2026 KL Application. All rights reserved.
   </footer>
+
+  <!-- Always visible bottom download button -->
+  <div class="fixed-download">
+    <a class="download-btn"
+       href="YOUR-APK-LINK"
+       download>
+      ↓ DOWNLOAD APK NOW
+    </a>
+  </div>
 
 </body>
 </html>
